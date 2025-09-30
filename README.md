@@ -4,7 +4,7 @@ Desenvolvimento de um site white label, para uso comercial como um catálogo dig
 # Fase atual: Protótipo de site:
 
 Até o momento foi criado uma ilustração do nosso site, feito pelo Canva de como esperamos que o projeto final fique.
-A ideia é fazer uma loja virtual de compra de produtos, com funções de paginação, adicionar produtos na sacola, remover produtos, cadastro básico de imagem e valores dos produtos. 
+A ideia é fazer uma loja virtual para web de compra de produtos, com funções de paginação, adicionar produtos na sacola, remover produtos, cadastro básico de imagem e valores dos produtos. 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Link para acessar ao protótipo do site:
