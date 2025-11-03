@@ -1,0 +1,4 @@
+Foram criados dois arquivos HTML: o index.html, que serve como menu principal do site, e o produtos.html, responsável pela exibição dos produtos.
+O arquivo CSS define o tema dark, com destaques em amarelo e verde, dando ao site uma aparência moderna e atraente.
+O arquivo JavaScript (JS) implementa toda a lógica de funcionamento do carrinho de compras — ele armazena os produtos selecionados, calcula automaticamente o valor total com base nas quantidades e gera o resumo do pedido.
+Ao clicar em “Finalizar pedido”, o sistema solicita o telefone do cliente e envia os detalhes do pedido diretamente ao telefone do vendedor, utilizando a Evolution API para realizar essa comunicação automatizada.

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>White Label</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div class="brand-info">
+          <span class="brand-name">White Label</span>
+          <span class="brand-tagline">Distribuidora Oficial</span>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Principal">
+        <a class="nav-link active" href="index.html">In&iacute;cio</a>
+        <a class="nav-link" href="#novidades">Novidades</a>
+        <a class="nav-link" href="produtos.html">Produtos</a>
+        <a class="nav-link" href="#guia">Guia de compras</a>
+      </nav>
+      <div class="header-actions">
+        <button class="bag-btn" id="verSacola" type="button">
+          <span aria-hidden="true">&#128722;</span>
+          Sacola
+        </button>
+        <a class="contact-btn" href="#contato">Contato</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Banners promocionais">
+        <button class="slider-nav prev" type="button" aria-label="Slide anterior">
+          &#10094;
+        </button>
+        <div class="slider">
+          <article class="slide active" id="slide-0">
+            <img
+              src="imagens/acrema-blend-banner.png"
+              alt="Acrema Blend - destaque da semana"
+            />
+          </article>
+          <article class="slide" id="slide-1">
+            <img
+              src="imagens/zomo-morango.png"
+              alt="Essencia Zomo sabor Morango"
+            />
+          </article>
+          <article class="slide" id="slide-2">
+            <img
+              src="imagens/zomo-verde.png"
+              alt="Essencia Zomo sabor Limao Fresh"
+            />
+          </article>
+        </div>
+        <button class="slider-nav next" type="button" aria-label="Proximo slide">
+          &#10095;
+        </button>
+        <div class="slider-dots" role="tablist" aria-label="Selecionar banner">
+          <button
+            class="dot active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="slide-0"
+          ></button>
+          <button
+            class="dot"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="slide-1"
+          ></button>
+          <button
+            class="dot"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="slide-2"
+          ></button>
+        </div>
+      </section>
+
+      <section class="highlights" id="novidades" aria-label="Destaques">
+        <ul class="highlight-grid">
+          <li class="highlight-card">
+            <span class="highlight-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M3 16h18l-1.5 4h-15zM5 14l1-4h12l1 4zM9 5h6l1 2h-8z"
+                />
+              </svg>
+            </span>
+            <div>
+              <h3>Compras acima de R$300</h3>
+              <p>Frete gratis garantido</p>
+            </div>
+          </li>
+          <li class="highlight-card">
+            <span class="highlight-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M12 2l3 6 6 .5-4.5 4 1.5 6-6-3.5L6 18.5 7.5 12 3 8.5 9 8z"
+                />
+              </svg>
+            </span>
+            <div>
+              <h3>10% na primeira compra</h3>
+              <p>Cupons exclusivos toda semana</p>
+            </div>
+          </li>
+          <li class="highlight-card">
+            <span class="highlight-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M21 5h-3V3H6v2H3v2h1l1.6 11h12.8L20 7h1zM8 19a2 2 0 112 2 2 2 0 01-2-2zm8 0a2 2 0 112 2 2 2 0 01-2-2z"
+                />
+              </svg>
+            </span>
+            <div>
+              <h3>Indique e ganhe</h3>
+              <p>Display extra por amigo indicado</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="catalog-section" aria-labelledby="lancamentos">
+        <header class="catalog-header">
+          <div class="heading-wrapper">
+            <span class="heading-marker"></span>
+            <h2 id="lancamentos">Lancamentos</h2>
+          </div>
+          <a
+            class="catalog-more"
+            href="produtos.html"
+            aria-label="Ver todos os lancamentos"
+          >
+            &#10148;
+          </a>
+        </header>
+        <div class="product-grid">
+          <article class="product-card">
+            <img
+              src="imagens/acrema-blend-display.png"
+              alt="Acrema Blend Display"
+            />
+            <header class="product-info">
+              <span class="product-category">Cigarros</span>
+              <h3>Acrema Blend</h3>
+            </header>
+            <div class="product-pricing">
+              <span class="product-price-old">R$ 15,00</span>
+              <span class="product-price">R$ 12,50</span>
+              <span class="product-stock">Em estoque</span>
+            </div>
+            <button
+              class="btn-adicionar"
+              data-nome="Acrema Blend"
+              data-preco="12.50"
+              type="button"
+            >
+              Adicionar &agrave; sacola
+            </button>
+          </article>
+
+          <article class="product-card">
+            <img src="imagens/zomo-morango.png" alt="Zomo Morango" />
+            <header class="product-info">
+              <span class="product-category">Essencias</span>
+              <h3>Essencia Zomo Morango</h3>
+            </header>
+            <div class="product-pricing">
+              <span class="product-price-old">R$ 5,00</span>
+              <span class="product-price">R$ 4,50</span>
+              <span class="product-stock">Em estoque</span>
+            </div>
+            <button
+              class="btn-adicionar"
+              data-nome="Essencia Zomo Morango"
+              data-preco="4.50"
+              type="button"
+            >
+              Adicionar &agrave; sacola
+            </button>
+          </article>
+
+          <article class="product-card">
+            <img src="imagens/zomo-verde.png" alt="Zomo Limao" />
+            <header class="product-info">
+              <span class="product-category">Essencias</span>
+              <h3>Essencia Zomo Limao Fresh</h3>
+            </header>
+            <div class="product-pricing">
+              <span class="product-price-old">R$ 5,00</span>
+              <span class="product-price">R$ 4,50</span>
+              <span class="product-stock">Em estoque</span>
+            </div>
+            <button
+              class="btn-adicionar"
+              data-nome="Essencia Zomo Limao Fresh"
+              data-preco="4.50"
+              type="button"
+            >
+              Adicionar &agrave; sacola
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <section class="catalog-section" aria-labelledby="displays">
+        <header class="catalog-header">
+          <div class="heading-wrapper">
+            <span class="heading-marker accent"></span>
+            <h2 id="displays">Displays em caixa</h2>
+          </div>
+          <span class="catalog-icon" aria-hidden="true">&#128722;</span>
+        </header>
+        <div class="product-grid">
+          <article class="product-card">
+            <img
+              src="imagens/acrema-blend-display.png"
+              alt="Display Acrema Blend"
+            />
+            <header class="product-info">
+              <span class="product-category">Displays</span>
+              <h3>Display Acrema Blend</h3>
+            </header>
+            <div class="product-pricing">
+              <span class="product-price-old">R$ 135,00</span>
+              <span class="product-price">R$ 125,00</span>
+              <span class="product-stock">Em estoque</span>
+            </div>
+            <button
+              class="btn-adicionar primary"
+              data-nome="Display Acrema"
+              data-preco="125.00"
+              type="button"
+            >
+              Adicionado
+            </button>
+          </article>
+
+          <article class="product-card">
+            <img src="imagens/zomo-morango.png" alt="Display Zomo Morango" />
+            <header class="product-info">
+              <span class="product-category">Displays</span>
+              <h3>Display Zomo Morango</h3>
+            </header>
+            <div class="product-pricing">
+              <span class="product-price-old">R$ 98,00</span>
+              <span class="product-price">R$ 90,00</span>
+              <span class="product-stock">Em estoque</span>
+            </div>
+            <button
+              class="btn-adicionar"
+              data-nome="Display Zomo Morango"
+              data-preco="90.00"
+              type="button"
+            >
+              Adicionar &agrave; sacola
+            </button>
+          </article>
+
+          <article class="product-card">
+            <img src="imagens/zomo-verde.png" alt="Display Zomo Limao" />
+            <header class="product-info">
+              <span class="product-category">Displays</span>
+              <h3>Display Zomo Limao Fresh</h3>
+            </header>
+            <div class="product-pricing">
+              <span class="product-price-old">R$ 98,00</span>
+              <span class="product-price">R$ 90,00</span>
+              <span class="product-stock">Em estoque</span>
+            </div>
+            <button
+              class="btn-adicionar"
+              data-nome="Display Zomo Limao"
+              data-preco="90.00"
+              type="button"
+            >
+              Adicionar &agrave; sacola
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <section class="guide" id="guia" aria-labelledby="guia-title">
+        <div class="guide-card">
+          <h2 id="guia-title">Guia de compras</h2>
+          <p>
+            Combine essencias e displays para criar ofertas personalizadas
+            para o seu ponto de venda. Nossos consultores ajudam a montar o mix
+            ideal de cada categoria.
+          </p>
+          <ul>
+            <li>Escolha o segmento: cigarros, essencias ou displays completos.</li>
+            <li>Adicione ao carrinho e receba cashback em cada reposicao.</li>
+            <li>Finalize o pedido para acionar um consultor em tempo real.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <aside id="sacola" class="sacola-popup" aria-live="polite">
+      <div class="sacola-header">
+        <h3>Sua sacola</h3>
+        <button
+          class="sacola-close"
+          type="button"
+          aria-label="Fechar sacola"
+          data-close-sacola
+        >
+          &#10005;
+        </button>
+      </div>
+      <ul id="listaSacola"></ul>
+      <footer class="sacola-footer">
+        <p>Total: R$ <span id="totalSacola">0,00</span></p>
+        <button id="finalizarPedido" type="button">Finalizar pedido</button>
+      </footer>
+    </aside>
+
+    <footer class="page-footer" id="contato">
+      <p>White Label &copy; 2025. Todos os direitos reservados.</p>
+    </footer>
+  </body>
+</html>

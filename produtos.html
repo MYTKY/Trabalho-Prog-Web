@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produtos - White Label</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div class="brand-info">
+          <span class="brand-name">White Label</span>
+          <span class="brand-tagline">Distribuidora Oficial</span>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Principal">
+        <a class="nav-link" href="index.html">In&iacute;cio</a>
+        <a class="nav-link" href="index.html#novidades">Novidades</a>
+        <a class="nav-link active" href="produtos.html">Produtos</a>
+        <a class="nav-link" href="index.html#guia">Guia de compras</a>
+      </nav>
+      <div class="header-actions">
+        <button class="bag-btn" id="verSacola" type="button">
+          <span aria-hidden="true">&#128722;</span>
+          Sacola
+        </button>
+        <a class="contact-btn" href="index.html#contato">Contato</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="catalog-section" aria-labelledby="catalogo-geral">
+        <header class="catalog-header">
+          <div class="heading-wrapper">
+            <span class="heading-marker"></span>
+            <h1 id="catalogo-geral">Todos os produtos</h1>
+          </div>
+          <span class="catalog-icon" aria-hidden="true">&#128722;</span>
+        </header>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <img
+              src="imagens/acrema-blend-display.png"
+              alt="Display Acrema Blend"
+            />
+            <header class="product-info">
+              <span class="product-category">Displays</span>
+              <h2>Display Acrema Blend</h2>
+            </header>
+            <div class="product-pricing">
+              <span class="product-price-old">R$ 135,00</span>
+              <span class="product-price">R$ 125,00</span>
+              <span class="product-stock">Em estoque</span>
+            </div>
+            <button
+              class="btn-adicionar"
+              data-nome="Display Acrema Blend"
+              data-preco="125.00"
+              type="button"
+            >
+              Adicionar &agrave; sacola
+            </button>
+          </article>
+
+          <article class="product-card">
+            <img src="imagens/acrema-blend-display.png" alt="Acrema Blend" />
+            <header class="product-info">
+              <span class="product-category">Cigarros</span>
+              <h2>Acrema Blend</h2>
+            </header>
+            <div class="product-pricing">
+              <span class="product-price-old">R$ 15,00</span>
+              <span class="product-price">R$ 12,50</span>
+              <span class="product-stock">Em estoque</span>
+            </div>
+            <button
+              class="btn-adicionar"
+              data-nome="Acrema Blend"
+              data-preco="12.50"
+              type="button"
+            >
+              Adicionar &agrave; sacola
+            </button>
+          </article>
+
+          <article class="product-card">
+            <img src="imagens/zomo-morango.png" alt="Essencia Zomo Morango" />
+            <header class="product-info">
+              <span class="product-category">Essencias</span>
+              <h2>Essencia Zomo Morango</h2>
+            </header>
+            <div class="product-pricing">
+              <span class="product-price-old">R$ 5,00</span>
+              <span class="product-price">R$ 4,50</span>
+              <span class="product-stock">Em estoque</span>
+            </div>
+            <button
+              class="btn-adicionar"
+              data-nome="Essencia Zomo Morango"
+              data-preco="4.50"
+              type="button"
+            >
+              Adicionar &agrave; sacola
+            </button>
+          </article>
+
+          <article class="product-card">
+            <img src="imagens/zomo-verde.png" alt="Essencia Zomo Limao" />
+            <header class="product-info">
+              <span class="product-category">Essencias</span>
+              <h2>Essencia Zomo Limao Fresh</h2>
+            </header>
+            <div class="product-pricing">
+              <span class="product-price-old">R$ 5,00</span>
+              <span class="product-price">R$ 4,50</span>
+              <span class="product-stock">Em estoque</span>
+            </div>
+            <button
+              class="btn-adicionar"
+              data-nome="Essencia Zomo Limao Fresh"
+              data-preco="4.50"
+              type="button"
+            >
+              Adicionar &agrave; sacola
+            </button>
+          </article>
+
+          <article class="product-card">
+            <img src="imagens/zomo-morango.png" alt="Display Zomo Morango" />
+            <header class="product-info">
+              <span class="product-category">Displays</span>
+              <h2>Display Zomo Morango</h2>
+            </header>
+            <div class="product-pricing">
+              <span class="product-price-old">R$ 98,00</span>
+              <span class="product-price">R$ 90,00</span>
+              <span class="product-stock">Em estoque</span>
+            </div>
+            <button
+              class="btn-adicionar"
+              data-nome="Display Zomo Morango"
+              data-preco="90.00"
+              type="button"
+            >
+              Adicionar &agrave; sacola
+            </button>
+          </article>
+
+          <article class="product-card">
+            <img src="imagens/zomo-verde.png" alt="Display Zomo Limao" />
+            <header class="product-info">
+              <span class="product-category">Displays</span>
+              <h2>Display Zomo Limao Fresh</h2>
+            </header>
+            <div class="product-pricing">
+              <span class="product-price-old">R$ 98,00</span>
+              <span class="product-price">R$ 90,00</span>
+              <span class="product-stock">Em estoque</span>
+            </div>
+            <button
+              class="btn-adicionar"
+              data-nome="Display Zomo Limao Fresh"
+              data-preco="90.00"
+              type="button"
+            >
+              Adicionar &agrave; sacola
+            </button>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <aside id="sacola" class="sacola-popup" aria-live="polite">
+      <div class="sacola-header">
+        <h3>Sua sacola</h3>
+        <button
+          class="sacola-close"
+          type="button"
+          aria-label="Fechar sacola"
+          data-close-sacola
+        >
+          &#10005;
+        </button>
+      </div>
+      <ul id="listaSacola"></ul>
+      <footer class="sacola-footer">
+        <p>Total: R$ <span id="totalSacola">0,00</span></p>
+        <button id="finalizarPedido" type="button">Finalizar pedido</button>
+      </footer>
+    </aside>
+
+    <footer class="page-footer">
+      <p>White Label &copy; 2025. Todos os direitos reservados.</p>
+    </footer>
+  </body>
+</html>
