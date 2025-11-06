@@ -1,11 +1,24 @@
+# Integrantes:
+- Ester de Lima
+- Igor Kurose
+- Murilo Kurose
+- Robert Jonathan
+
 # Trabalho-Prog-Web:
 Desenvolvimento de um site white label, para uso comercial como um catálogo digital.
 
-# Fase atual: Protótipo de site:
+# Fase atual: Acompanhamento do site:
 
-Até o momento foi criado uma ilustração do nosso site, feito pelo Canva de como esperamos que o projeto final fique.
-A ideia é fazer uma loja virtual para web de compra de produtos, com funções de paginação, adicionar produtos na sacola, remover produtos, cadastro básico de imagem e valores dos produtos. 
+Foram criados dois arquivos HTML: o index.html, que serve como menu principal do site, e o produtos.html, responsável pela exibição dos produtos.
+O arquivo CSS define o tema dark, com destaques em amarelo e verde, dando ao site uma aparência moderna e atraente.
+O arquivo JavaScript (JS) implementa toda a lógica de funcionamento do carrinho de compras — ele armazena os produtos selecionados, calcula automaticamente o valor total com base nas quantidades e gera o resumo do pedido.
+Ao clicar em “Finalizar pedido”, o sistema solicita o telefone do cliente e envia os detalhes do pedido diretamente ao telefone do vendedor, utilizando a Evolution API para realizar essa comunicação automatizada.
+
+# 5 Funcionalidades:
+1 - Envio de pedido para o Whatsapp do vendedor.
+2 - Inserir produtos no carrinho.
+3 - Passar as imagens para a lateral.
+4 - Navegar entra as janelas do site.
+5 - (EM Desenvolvimento ainda) Alterar a imagem de Logo e nome do site de "White Label" para algum outro qualquer.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Link para acessar ao protótipo do site:
-https://www.canva.com/design/DAGt_v23m8M/XXW_R8EsTRWA8y7Msq7DmA/edit?utm_content=DAGt_v23m8M&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
