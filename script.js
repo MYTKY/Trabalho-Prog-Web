@@ -1,14 +1,14 @@
-const sacola = [];
+const itensSacola = [];
 
-const sacolaEl = document.getElementById("sacola");
-const listaSacolaEl = document.getElementById("listaSacola");
-const totalSacolaEl = document.getElementById("totalSacola");
-const toggleSacolaBtn = document.getElementById("verSacola");
-const closeSacolaBtn = document.querySelector("[data-close-sacola]");
-const finalizarPedidoBtn = document.getElementById("finalizarPedido");
+const blocoSacola = document.getElementById("sacola");
+const listaSacola = document.getElementById("listaSacola");
+const totalSacola = document.getElementById("totalSacola");
+const botaoVerSacola = document.getElementById("verSacola");
+const botaoFecharSacola = document.querySelector("[data-close-sacola]");
+const botaoFinalizar = document.getElementById("finalizarPedido");
 
-function formatCurrency(valor) {
-  return Number(valor).toFixed(2);
+function formatarPreco(valor) {
+  return Number(valor || 0).toFixed(2);
 }
 
 function abrirSacola() {
@@ -19,75 +19,87 @@ function fecharSacola() {
   document.body.classList.remove("show-sacola");
 }
 
-function alternarSacola() {
-  document.body.classList.toggle("show-sacola");
-}
-
 function atualizarSacola() {
-  if (!listaSacolaEl || !totalSacolaEl) {
+  if (!listaSacola || !totalSacola) {
     return;
   }
 
-  listaSacolaEl.innerHTML = "";
-  let total = 0;
+  listaSacola.innerHTML = "";
+  var total = 0;
 
-  sacola.forEach((produto) => {
+  for (var i = 0; i < itensSacola.length; i++) {
+    var produto = itensSacola[i];
     total += produto.preco * produto.quantidade;
-    const item = document.createElement("li");
-    item.textContent = `${produto.nome} x${
-      produto.quantidade
-    } - R$ ${formatCurrency(produto.preco * produto.quantidade)}`;
-    listaSacolaEl.appendChild(item);
-  });
 
-  totalSacolaEl.textContent = formatCurrency(total);
+    var itemLista = document.createElement("li");
+    var subtotal = formatarPreco(produto.preco * produto.quantidade);
+    itemLista.textContent =
+      produto.nome + " x" + produto.quantidade + " - R$ " + subtotal;
+    listaSacola.appendChild(itemLista);
+  }
 
-  if (sacola.length > 0) {
+  totalSacola.textContent = formatarPreco(total);
+
+  if (itensSacola.length > 0) {
     abrirSacola();
   }
 }
 
-document.querySelectorAll(".btn-adicionar").forEach((botao) => {
-  botao.addEventListener("click", () => {
-    const nome = botao.dataset.nome;
-    const preco = parseFloat(botao.dataset.preco);
+var botoesAdicionar = document.querySelectorAll(".btn-adicionar");
+for (var i = 0; i < botoesAdicionar.length; i++) {
+  var botao = botoesAdicionar[i];
+  botao.addEventListener("click", function (evento) {
+    var botaoClicado = evento.currentTarget;
+    var nome = botaoClicado.dataset.nome;
+    var preco = parseFloat(botaoClicado.dataset.preco);
 
-    if (!nome || Number.isNaN(preco)) {
+    if (!nome || isNaN(preco)) {
       return;
     }
 
-    const existente = sacola.find((produto) => produto.nome === nome);
-    if (existente) {
-      existente.quantidade += 1;
+    var produtoExistente = null;
+    for (var j = 0; j < itensSacola.length; j++) {
+      if (itensSacola[j].nome === nome) {
+        produtoExistente = itensSacola[j];
+        break;
+      }
+    }
+
+    if (produtoExistente) {
+      produtoExistente.quantidade += 1;
     } else {
-      sacola.push({ nome, preco, quantidade: 1 });
+      itensSacola.push({ nome: nome, preco: preco, quantidade: 1 });
     }
 
     atualizarSacola();
   });
-});
+}
 
-toggleSacolaBtn?.addEventListener("click", () => {
-  if (sacola.length === 0) {
-    abrirSacola();
+if (botaoVerSacola) {
+  botaoVerSacola.addEventListener("click", function () {
+    if (itensSacola.length === 0) {
+      abrirSacola();
+    } else {
+      document.body.classList.toggle("show-sacola");
+    }
+  });
+}
+
+if (botaoFecharSacola) {
+  botaoFecharSacola.addEventListener("click", fecharSacola);
+}
+
+document.addEventListener("click", function (evento) {
+  if (!blocoSacola) {
     return;
   }
-  alternarSacola();
-});
 
-closeSacolaBtn?.addEventListener("click", fecharSacola);
-
-document.addEventListener("click", (event) => {
-  if (!sacolaEl) {
-    return;
-  }
-
-  const alvo = event.target;
-  const clicouFora =
+  var alvo = evento.target;
+  var clicouFora =
     document.body.classList.contains("show-sacola") &&
-    !sacolaEl.contains(alvo) &&
-    alvo !== toggleSacolaBtn &&
-    !toggleSacolaBtn?.contains(alvo);
+    !blocoSacola.contains(alvo) &&
+    botaoVerSacola &&
+    !botaoVerSacola.contains(alvo);
 
   if (clicouFora) {
     fecharSacola();
@@ -95,107 +107,118 @@ document.addEventListener("click", (event) => {
 });
 
 function montarMensagemPedido(numeroCliente) {
-  const linhas = sacola.map(
-    (produto) =>
-      `- ${produto.nome} x${produto.quantidade} (R$ ${formatCurrency(
-        produto.preco * produto.quantidade
-      )})`
-  );
+  var linhas = [];
+  var total = 0;
 
-  const total = sacola.reduce(
-    (acumulado, produto) => acumulado + produto.preco * produto.quantidade,
-    0
-  );
+  for (var i = 0; i < itensSacola.length; i++) {
+    var produto = itensSacola[i];
+    var subtotal = produto.preco * produto.quantidade;
+    total += subtotal;
+    linhas.push(
+      "- " +
+        produto.nome +
+        " x" +
+        produto.quantidade +
+        " (R$ " +
+        formatarPreco(subtotal) +
+        ")"
+    );
+  }
 
-  linhas.push(`Total: R$ ${formatCurrency(total)}`);
-  linhas.push(`Cliente: ${numeroCliente}`);
+  linhas.push("Total: R$ " + formatarPreco(total));
+  linhas.push("Cliente: " + numeroCliente);
 
-  return `Resumo do pedido White Label:\n${linhas.join("\n")}`;
+  return "Resumo do pedido White Label:\n" + linhas.join("\n");
 }
 
 async function enviarPedido(numeroCliente) {
-  const url = "https://evolutionapi.solucaosistemas.cloud/message/sendText/WEB";
-  const payload = {
+  var url =
+    "https://evolutionapi.solucaosistemas.cloud/message/sendText/murilo";
+  var payload = {
     number: "556799641818@s.whatsapp.net",
     text: montarMensagemPedido(numeroCliente),
   };
 
   try {
-    const response = await fetch(url, {
+    var resposta = await fetch(url, {
       method: "POST",
       headers: {
-        apikey: "65B339CD9CFA-4E5B-BB0C-EFE4206B4256",
+        apikey: "A2E2C8CED42A-4982-9821-D2677BEDAA75",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
     });
 
-    if (!response.ok) {
-      throw new Error(`Falha no envio: ${response.status}`);
+    if (!resposta.ok) {
+      throw new Error("Falha no envio: " + resposta.status);
     }
 
-    const data = await response.json();
-    console.log("Pedido enviado:", data);
+    var dados = await resposta.json();
+    console.log("Pedido enviado:", dados);
     alert("Pedido enviado para o vendedor!");
     fecharSacola();
-  } catch (error) {
-    console.error("Erro ao enviar pedido:", error);
+  } catch (erro) {
+    console.error("Erro ao enviar pedido:", erro);
     alert("Nao foi possivel enviar o pedido. Tente novamente em instantes.");
   }
 }
 
-finalizarPedidoBtn?.addEventListener("click", async () => {
-  if (sacola.length === 0) {
-    alert("Adicione itens a sacola antes de finalizar o pedido.");
-    return;
-  }
+if (botaoFinalizar) {
+  botaoFinalizar.addEventListener("click", function () {
+    if (itensSacola.length === 0) {
+      alert("Adicione itens a sacola antes de finalizar o pedido.");
+      return;
+    }
 
-  const numeroClienteEntrada = prompt(
-    "Informe o numero do cliente (inclua DDD, apenas numeros):"
-  );
+    var numeroClienteEntrada = prompt(
+      "Informe o numero do cliente (inclua DDD, apenas numeros):"
+    );
 
-  if (numeroClienteEntrada === null) {
-    return;
-  }
+    if (numeroClienteEntrada === null) {
+      return;
+    }
 
-  const numeroCliente = numeroClienteEntrada.trim();
+    var numeroCliente = numeroClienteEntrada.trim();
 
-  if (!numeroCliente) {
-    alert("Numero do cliente nao informado.");
-    return;
-  }
+    if (!numeroCliente) {
+      alert("Numero do cliente nao informado.");
+      return;
+    }
 
-  await enviarPedido(numeroCliente);
-});
+    enviarPedido(numeroCliente);
+  });
+}
 
 // Controle do carrossel
-const slider = document.querySelector(".slider");
-const slides = slider ? Array.from(slider.querySelectorAll(".slide")) : [];
-const prevBtn = document.querySelector(".slider-nav.prev");
-const nextBtn = document.querySelector(".slider-nav.next");
-const dots = Array.from(document.querySelectorAll(".dot"));
+const faixaSlides = document.querySelector(".slider");
+const listaSlides = faixaSlides ? faixaSlides.querySelectorAll(".slide") : [];
+const botaoAnterior = document.querySelector(".slider-nav.prev");
+const botaoProximo = document.querySelector(".slider-nav.next");
+const marcadores = document.querySelectorAll(".dot");
 
-let slideAtual = 0;
-let intervaloSlider;
+var slideAtual = 0;
+var intervaloSlider = null;
 
 function irParaSlide(alvo) {
-  if (!slider || slides.length === 0) {
+  if (!faixaSlides || listaSlides.length === 0) {
     return;
   }
 
-  slideAtual = (alvo + slides.length) % slides.length;
-  const deslocamento = -(slideAtual * 100);
-  slider.style.transform = `translateX(${deslocamento}%)`;
+  slideAtual = (alvo + listaSlides.length) % listaSlides.length;
+  var deslocamento = -(slideAtual * 100);
+  faixaSlides.style.transform = "translateX(" + deslocamento + "%)";
 
-  slides.forEach((slide, indice) => {
-    slide.classList.toggle("active", indice === slideAtual);
-  });
+  for (var i = 0; i < listaSlides.length; i++) {
+    var slide = listaSlides[i];
+    slide.classList.toggle("active", i === slideAtual);
+  }
 
-  dots.forEach((dot, indice) => {
-    const ativo = indice === slideAtual;
-    dot.classList.toggle("active", ativo);
-    dot.setAttribute("aria-selected", ativo ? "true" : "false");
-  });
+  for (var j = 0; j < marcadores.length; j++) {
+    var marcador = marcadores[j];
+    var ativo = j === slideAtual;
+    marcador.classList.toggle("active", ativo);
+    marcador.setAttribute("aria-selected", ativo ? "true" : "false");
+  }
 }
 
 function proximoSlide() {
@@ -214,37 +237,44 @@ function iniciarIntervalo() {
 }
 
 function reiniciarIntervalo() {
-  if (!slider) {
+  if (!faixaSlides) {
     return;
   }
   iniciarIntervalo();
 }
 
-prevBtn?.addEventListener("click", () => {
-  slideAnterior();
-  reiniciarIntervalo();
-});
-
-nextBtn?.addEventListener("click", () => {
-  proximoSlide();
-  reiniciarIntervalo();
-});
-
-dots.forEach((dot, indice) => {
-  dot.addEventListener("click", () => {
-    irParaSlide(indice);
+if (botaoAnterior) {
+  botaoAnterior.addEventListener("click", function () {
+    slideAnterior();
     reiniciarIntervalo();
   });
-});
+}
 
-if (slides.length > 0) {
+if (botaoProximo) {
+  botaoProximo.addEventListener("click", function () {
+    proximoSlide();
+    reiniciarIntervalo();
+  });
+}
+
+for (var i = 0; i < marcadores.length; i++) {
+  (function (indice) {
+    marcadores[indice].addEventListener("click", function () {
+      irParaSlide(indice);
+      reiniciarIntervalo();
+    });
+  })(i);
+}
+
+if (listaSlides.length > 0) {
   iniciarIntervalo();
 }
 
-document.addEventListener("visibilitychange", () => {
-  if (!slider) {
+document.addEventListener("visibilitychange", function () {
+  if (!faixaSlides) {
     return;
   }
+
   if (document.hidden) {
     clearInterval(intervaloSlider);
   } else {
