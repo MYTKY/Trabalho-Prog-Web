@@ -4,21 +4,19 @@
 - Murilo Kurose
 - Robert Jonathan
 
-# Trabalho-Prog-Web:
-Desenvolvimento de um site white label, para uso comercial como um catálogo digital.
+# Trabalho-Prog-Web
+Catálogo digital white label para uso comercial.
 
-# Fase atual: Acompanhamento do site:
+- Fase atual: Projeto final (Java Web)
+  - Backend em Spring Boot ligado ao Supabase para login e produtos.
+  - Páginas Thymeleaf servindo o catálogo e painel de produtos.
 
-Foram criados dois arquivos HTML: o index.html, que serve como menu principal do site, e o produtos.html, responsável pela exibição dos produtos.
-O arquivo CSS define o tema dark, com destaques em amarelo e verde, dando ao site uma aparência moderna e atraente.
-O arquivo JavaScript (JS) implementa toda a lógica de funcionamento do carrinho de compras — ele armazena os produtos selecionados, calcula automaticamente o valor total com base nas quantidades e gera o resumo do pedido.
-Ao clicar em “Finalizar pedido”, o sistema solicita o telefone do cliente e envia os detalhes do pedido diretamente ao telefone do vendedor, utilizando a Evolution API para realizar essa comunicação automatizada.
+# 5 funcionalidades:
+- Enviar pedido para o WhatsApp do vendedor.
+- Inserir produtos no carrinho/sacola.
+- Slider de imagens no destaque.
+- Navegar entre as páginas (home, produtos, login).
+- (Em desenvolvimento) Trocar logo e nome “White Label” por outro.
 
-# 5 Funcionalidades:
-1 - Envio de pedido para o Whatsapp do vendedor.
-2 - Inserir produtos no carrinho.
-3 - Passar as imagens para a lateral.
-4 - Navegar entra as janelas do site.
-5 - (EM Desenvolvimento ainda) Alterar a imagem de Logo e nome do site de "White Label" para algum outro qualquer.
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------
 
