@@ -17,5 +17,8 @@
 - Navegar entre as páginas (home, produtos, login).
 - (Em desenvolvimento) Trocar logo e nome “White Label” por outro.
 
+  # OBSERVAÇÃO:
+  - Baixar o .rar do ava. Devido ao tamanho limite de 25 MB do github, não foi possível subir aqui.
+
 ----------------------------------------
 
