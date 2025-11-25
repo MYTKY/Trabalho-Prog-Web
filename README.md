@@ -4,8 +4,7 @@
 - Murilo Kurose
 - Robert Jonathan
 
-# Trabalho-Prog-Web
-Catálogo digital white label para uso comercial.
+# Catálogo digital white label para uso comercial.
 
 - Fase atual: Projeto final (Java Web)
   - Backend em Spring Boot ligado ao Supabase para login e produtos.
